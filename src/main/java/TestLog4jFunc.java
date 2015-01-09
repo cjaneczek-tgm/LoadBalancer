@@ -7,6 +7,7 @@ public class TestLog4jFunc {
     static Logger logger = org.apache.log4j.Logger.getLogger(TestLog4jFunc.class);
 
     public static void main(String[] args) {
-        logger.info("First log-message");
+        double wtf = 0.47;
+        logger.info("First log-message "+wtf+"%");
     }
 }
