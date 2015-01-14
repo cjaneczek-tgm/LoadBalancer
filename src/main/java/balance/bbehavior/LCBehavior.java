@@ -1,13 +1,12 @@
 package balance.bbehavior;
 
+import java.util.HashMap;
+
 public class LCBehavior implements BalancerBehavior {
 
 
-	/**
-	 * @see balance.bbehavior.BalancerBehavior#useBalance()
-	 */
-	public String useBalance() {
+	@Override
+	public String useBalance(HashMap<String, Integer> loadFactor) {
 		return null;
 	}
-
 }
