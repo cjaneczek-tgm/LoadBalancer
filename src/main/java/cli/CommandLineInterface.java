@@ -52,6 +52,7 @@ public class CommandLineInterface {
         this.count = (String)cl.getValue(count_option);
         this.behavior = (String)cl.getValue(password_option);
         this.address = (String)cl.getValue(address_option);
+        this.weight = (String)cl.getValue(weight_option);
     }
     /**
      * Gibt den zu verwendeten Typ zurück
