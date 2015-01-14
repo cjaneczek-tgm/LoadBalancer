@@ -18,7 +18,7 @@ import org.apache.commons.cli2.commandline.Parser;
  */
 public class CommandLineInterface {
 
-    private String type, count, behavior, address;
+    private String type, count, behavior, address, weight;
 
     /**
      * Der Konstruktor der Klasse CommandLineInterface
@@ -41,6 +41,8 @@ public class CommandLineInterface {
                 .withArgument(ab.withName("behavior").withMinimum(1).withMaximum(1).create()).create();
         DefaultOption address_option = dob.withLongName("address").withShortName("a").withRequired(true).withDescription("Die Adresse des LoadBalancers")
                 .withArgument(ab.withName("address").withMinimum(1).withMaximum(1).create()).create();
+        DefaultOption weight_option = dob.withLongName("weight").withShortName("w").withRequired(true).withDescription("Die Auslastung des jeweiligen Servers")
+                .withArgument(ab.withName("weight").withMinimum(1).withMaximum(1).create()).create();
         Group options = gb.withName("options").withOption(type_option).withOption(count_option).withOption(password_option).withOption(address_option).create();
 
         Parser parser = new Parser();
@@ -79,5 +81,12 @@ public class CommandLineInterface {
      */
     public String getAddress() {
         return this.address;
+    }
+    /**
+     * Gibt die Auslastung des jeweiligen Servers zurück
+     * @return weight als String
+     */
+    public String getWeight() {
+        return this.weight;
     }
 }
