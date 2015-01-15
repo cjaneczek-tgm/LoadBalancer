@@ -1,13 +1,12 @@
 package balance.bbehavior;
 
+import java.util.HashMap;
+
 public class WLCBehavior implements BalancerBehavior {
 
 
-	/**
-	 * @see balance.bbehavior.BalancerBehavior#useBalance()
-	 */
-	public String useBalance() {
+	@Override
+	public String useBalance(HashMap<Integer,String> loadFactor) {
 		return null;
 	}
-
 }
