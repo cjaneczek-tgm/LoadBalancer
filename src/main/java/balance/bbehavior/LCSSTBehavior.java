@@ -6,7 +6,7 @@ public class LCSSTBehavior implements BalancerBehavior {
 
 
 	@Override
-	public String useBalance(HashMap<String, Integer> loadFactor) {
+	public String useBalance(HashMap<Integer,String> loadFactor) {
 		return null;
 	}
 }

@@ -14,10 +14,11 @@ public class TestLog4jFunc {
     public static void main(String[] args) {
 
         BalancerBehavior lcBehavior = new LCBehavior();
-        HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
-        hashMap.put("Bernhard",1);
-        hashMap.put("Josef",2);
-        hashMap.put("Wolfgang",3);
+        HashMap<Integer, String> hashMap = new HashMap<Integer, String>();
+        hashMap.put(0,"Samuel");
+        hashMap.put(1,"Bernhard");
+        hashMap.put(2,"Josef");
+        hashMap.put(3,"Wolfgang");
 //        logger.info("Output hashmap: "+hashMap.get("Bernhard"));
         lcBehavior.useBalance(hashMap);
     }

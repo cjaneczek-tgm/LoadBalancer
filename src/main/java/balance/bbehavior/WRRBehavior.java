@@ -12,7 +12,7 @@ public class WRRBehavior implements BalancerBehavior {
 	}
 
 	@Override
-	public String useBalance(HashMap<String, Integer> loadFactor) {
+	public String useBalance(HashMap<Integer,String> loadFactor) {
 //		int least = 0;
 //		for(int i=0; i<loadFactor.size();i++){
 //		}
