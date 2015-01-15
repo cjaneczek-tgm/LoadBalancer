@@ -15,7 +15,7 @@ public class TestLog4jFunc {
 
         BalancerBehavior lcBehavior = new LCBehavior();
         HashMap<Integer, String> hashMap = new HashMap<Integer, String>();
-        hashMap.put(0,"Samuel");
+        //hashMap.put(0,"Samuel");
         hashMap.put(1,"Bernhard");
         hashMap.put(2,"Josef");
         hashMap.put(3,"Wolfgang");

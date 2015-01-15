@@ -19,10 +19,16 @@ public class LCBehavior implements BalancerBehavior {
 	 */
 	@Override
 	public String useBalance(HashMap<Integer,String> loadFactor) {
+		boolean set = false;
 		int least = 0;
 		for ( int key : loadFactor.keySet() ) {
-			if(key <= least) {
+			if(!set){
 				least = key;
+				set = true;
+			}else{
+				if(key <= least){
+					least = key;
+				}
 			}
 		}
 		//logger.info(loadFactor.get(least));
