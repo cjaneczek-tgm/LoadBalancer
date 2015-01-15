@@ -13,13 +13,13 @@ public class TestLog4jFunc {
 
     public static void main(String[] args) {
 
-        BalancerBehavior lcBehavior = new LCBehavior();
+        BalancerBehavior wrrBehavior = new WRRBehavior();
         HashMap<Integer, String> hashMap = new HashMap<Integer, String>();
         //hashMap.put(0,"Samuel");
         hashMap.put(1,"Bernhard");
         hashMap.put(2,"Josef");
         hashMap.put(3,"Wolfgang");
-//        logger.info("Output hashmap: "+hashMap.get("Bernhard"));
-        lcBehavior.useBalance(hashMap);
+        logger.info("Output: "+ wrrBehavior.useBalance(hashMap));
+        wrrBehavior.useBalance(hashMap);
     }
 }
