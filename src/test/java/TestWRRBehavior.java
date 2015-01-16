@@ -26,6 +26,6 @@ public class TestWRRBehavior {
         hashMap.put(3,"Wolfgang");
         hashMap.put(4,"Thomas");
         logger.info("Output: "+ wrrbehavior.useBalance(hashMap));
-        assertEquals("Josef", wrrbehavior.useBalance(hashMap));
+        assertEquals("Thomas", wrrbehavior.useBalance(hashMap));
     }
 }

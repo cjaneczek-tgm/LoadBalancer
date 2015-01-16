@@ -12,6 +12,7 @@ public class WRRBehavior implements BalancerBehavior {
 	private int count = 0;
 	private ArrayList<String> pattern = new ArrayList<String>();
 	private ArrayList<Integer> urlist;
+	private ArrayList<String> urlist2;
 	static Logger logger = org.apache.log4j.Logger.getLogger(WRRBehavior.class);
 
 	public WRRBehavior(){
@@ -28,16 +29,19 @@ public class WRRBehavior implements BalancerBehavior {
 		}
 		else{
 			count++;
+			this.logger.info(pattern.get(count));
+			return pattern.get(count-1);
 		}
-		this.logger.info(pattern.get(count));
-		return pattern.get(count);
+
+
 	}
 
 	public void generatePattern(HashMap<Integer,String> loadFactor){
 
 		urlist = new ArrayList<Integer>(loadFactor.keySet());
+		urlist2 = new ArrayList<String>(loadFactor.values());
 		ArrayList<Integer> temp = urlist;
-		int least = 0, index = 0;
+		int least = 0, index = 0, keyindex = 0;
 		boolean set = false;
 		int sum = 0;
 
@@ -51,23 +55,23 @@ public class WRRBehavior implements BalancerBehavior {
 					least = key;
 					set = true;
 					index = 0;
-				} else {
-					logger.info("key vs least: "+key+" vs "+least+"\nIndex: "+index);
-					//TODO dieses if ist falsch siehe log file
+					keyindex = 0;
+
+				}
+				else {
 					if (key >= least) {
-						logger.info("Got in");
-						if(index+1 == temp.size())
-							least = index;
-						else
-							least = index+1;
+						least = key;
+						keyindex = index;
 					}
 				}
 				index++;
 			}
-			logger.info("LName: "+loadFactor.get(urlist.get(least)));
-			pattern.add(loadFactor.get(urlist.get(least)));
-			temp.set(least, temp.get(least) - 1);
+			logger.info(""+least);
+			logger.info("Ergebnis: "+ urlist2.get(keyindex));
+			pattern.add(""+urlist2.get(keyindex));
+			temp.set(keyindex, temp.get(keyindex) - 1);
 			logger.info("Liste: "+ urlist.toString());
+
 			set = false;
 		}
 	}
