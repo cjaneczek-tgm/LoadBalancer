@@ -31,7 +31,7 @@ public class LCBehavior implements BalancerBehavior {
 				}
 			}
 		}
-		//logger.info(loadFactor.get(least));
+		//logger.info(loadFactor.get(least))
 		return loadFactor.get(least);
 	}
 }

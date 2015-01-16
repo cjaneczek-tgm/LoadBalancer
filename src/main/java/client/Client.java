@@ -34,13 +34,13 @@ public class Client implements Runnable, RemoteServerInterface, RemoteBalancerIn
 
 			return remoteBalancer.getAddress();
 		} catch (RemoteException re) {
-			this.logger.info("Client triggered an Remote Exception.\n" + re.getMessage());
+			logger.info("Client triggered an Remote Exception.\n" + re.getMessage());
 			return null;
 		} catch (MalformedURLException murle) {
-			this.logger.info("Client triggered an MalformedURL Exception.\n" + murle.getMessage());
+			logger.info("Client triggered an MalformedURL Exception.\n" + murle.getMessage());
 			return null;
 		} catch (NotBoundException nbe) {
-			this.logger.info("Client triggered an NotBound Exception.\n" + nbe.getMessage());
+			logger.info("Client triggered an NotBound Exception.\n" + nbe.getMessage());
 			return null;
 		}
 	}
@@ -51,13 +51,13 @@ public class Client implements Runnable, RemoteServerInterface, RemoteBalancerIn
 			remoteServer.wasteRes();
 		}
 		catch(RemoteException re){
-			this.logger.info("Client triggered an Remote Exception.\n"+re.getMessage());
+			logger.info("Client triggered an Remote Exception.\n"+re.getMessage());
 		}
 		catch(MalformedURLException murle){
-			this.logger.info("Client triggered an MalformedURL Exception.\n"+murle.getMessage());
+			logger.info("Client triggered an MalformedURL Exception.\n"+murle.getMessage());
 		}
 		catch(NotBoundException nbe){
-			this.logger.info("Client triggered an NotBound Exception.\n"+nbe.getMessage());
+			logger.info("Client triggered an NotBound Exception.\n"+nbe.getMessage());
 		}
 
 	}
@@ -68,7 +68,7 @@ public class Client implements Runnable, RemoteServerInterface, RemoteBalancerIn
 			this.serverAddress = this.getAddress();
 		}
 		catch(NullPointerException npe){
-			this.logger.info("Client didn't find any Server!");
+			logger.info("Client didn't find any Server!");
 		}
 		this.wasteRes();
 	}
