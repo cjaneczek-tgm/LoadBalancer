@@ -1,15 +1,19 @@
 package client;
 
 import balance.Balancer;
+import balance.LCBalancer;
 import org.apache.log4j.Logger;
 import remote.RemoteBalancerInterface;
 import remote.RemoteServerInterface;
 import server.Server;
 
+import java.math.BigDecimal;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 /**
  * Client Object which gets an Server via RMI Communication to LoadBalancer
@@ -25,11 +29,15 @@ public class Client implements Runnable, RemoteServerInterface, RemoteBalancerIn
 	private RemoteBalancerInterface remoteBalancer;
 
 	public Client(String balancerAddress) throws RemoteException, MalformedURLException, NotBoundException {
-
+		if (System.getSecurityManager() == null) {
+			System.setProperty("java.security.policy", System.getProperty("user.dir") + "\\client.policy");
+			System.setSecurityManager(new SecurityManager());
+		}
 	}
 
 	public String getAddress() {
 		try {
+
 			remoteBalancer = (Balancer) Naming.lookup("rmi://" + balancerAddress);
 
 			return remoteBalancer.getAddress();

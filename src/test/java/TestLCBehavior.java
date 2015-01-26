@@ -28,6 +28,7 @@ public class TestLCBehavior {
         logger.info("Output: "+ lcbehavior.useBalance(hashMap));
         assertEquals("Samuel", lcbehavior.useBalance(hashMap));
     }
+
     @Test
     public void testUseBalanceWithout0(){
         BalancerBehavior lcbehavior = new LCBehavior();

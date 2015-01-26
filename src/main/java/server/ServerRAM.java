@@ -22,6 +22,10 @@ public class ServerRAM extends Server {
         this.name += name;
         this.weight = weight;
         super.logger.info(name+" is generated!");
+        if (System.getSecurityManager() == null) {
+            System.setProperty("java.security.policy", System.getProperty("user.dir") + "\\server.policy");
+            System.setSecurityManager(new SecurityManager());
+        }
     }
 
     @Override
